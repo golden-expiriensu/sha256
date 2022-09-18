@@ -12,4 +12,16 @@ for i, p in enumerate(primes):
     for _ in range(7):
         f *= 16
         x16f_f, x16f_f = math.modf(f)
-        K[i] = K[i] << 4 | int(x16f_f)
+        K[i] = (K[i] << 4) | int(x16f_f)
+
+H = [0] * 8
+
+for i in range(8):
+    f, w = math.modf(primes[i] ** (1 / 2.0))
+    f *= 16
+    H[i] |= int(math.modf(f)[1])
+    for _ in range(7):
+        f *= 16
+        x16f_f, x16f_f = math.modf(f)
+        H[i] = (H[i] << 4) | int(x16f_f)
+

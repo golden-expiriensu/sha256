@@ -1,4 +1,4 @@
-from mod32 import mod32
+from helpers.mod32 import mod32
 
 
 def xor(a, b):
